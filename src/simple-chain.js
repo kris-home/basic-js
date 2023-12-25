@@ -15,13 +15,18 @@ const chainMaker = {
    return this;
   },
   removeLink(position) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    if (this.chain[position - 1] === undefined) {
+      this.chain = [];
+      throw new Error("You can't remove incorrect link!");
+    }
+    this.chain.splice(position - 1, 1);
+    return this;
   },
   reverseChain() {
     this.chain.reverse();
     return this;
   },
+
   finishChain() {
     throw new NotImplementedError('Not implemented');
   }
